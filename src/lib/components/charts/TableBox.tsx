@@ -49,11 +49,16 @@ function TableBox<T>({
       border={"2px solid transparent"}
       _hover={{ boxShadow: "var(--chakra-shadows-lg)", borderColor: "#444" }}
       borderRadius={"2xl"}
-      width="100%"
+      width={{ sm: 'calc(100vw - 24px)', md: 'calc(100vw - 80px)' }}
+      mx="auto"
       colSpan={spanItem}
       display="flex"
       flex={2}
-      flexDir={"column-reverse"}
+      flexDir={
+        spanItem["2xl"] !== 3
+          ? "column-reverse"
+          : ["column-reverse", "column-reverse", "column-reverse", "row", "row"]
+      }
     >
       <ModalInfo
         modalInfo={modalInfo}
@@ -69,6 +74,7 @@ function TableBox<T>({
         display="flex"
         flexDir={"column"}
         alignItems="center"
+        height={"480px"}
         id={title}
       >
         <ChartHeader

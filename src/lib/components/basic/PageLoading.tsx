@@ -4,17 +4,17 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+
 function PageLoading() {
   const router = useRouter();
-
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleStart = (url: string) => {
-      return url !== router.route && url !== "/about" && setLoading(true);
+      return url !== router.asPath && url !== "/about" && setLoading(true);
     };
     const handleComplete = (url: string) =>
-      url === router.route && setLoading(false);
+      url === router.asPath && setLoading(false);
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -25,7 +25,7 @@ function PageLoading() {
       router.events.off("routeChangeComplete", handleComplete);
       router.events.off("routeChangeError", handleComplete);
     };
-  }, []);
+  });
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
@@ -60,7 +60,7 @@ function PageLogoWithLoading() {
       >
         <Image
           src="/og_big.png"
-          alt="Osmosis dashboard logo"
+          alt="terra dashboard logo"
           width={100}
           height={100}
         />
