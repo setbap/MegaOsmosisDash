@@ -49,8 +49,8 @@ function TableBox<T>({
       border={"2px solid transparent"}
       _hover={{ boxShadow: "var(--chakra-shadows-lg)", borderColor: "#444" }}
       borderRadius={"2xl"}
-      width={{ sm: 'calc(100vw - 24px)', md: 'calc(100vw - 80px)' }}
       mx="auto"
+      overflowX='hidden'
       colSpan={spanItem}
       display="flex"
       flex={2}
@@ -76,6 +76,8 @@ function TableBox<T>({
         alignItems="center"
         height={"480px"}
         id={title}
+        overflowX='hidden'
+
       >
         <ChartHeader
           chartMenu={

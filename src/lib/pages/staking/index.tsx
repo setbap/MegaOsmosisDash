@@ -291,7 +291,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
             queryLink={stakingTopWallets.key}
             title={stakingTopWallets.title}
             baseSpan={3}
-            tablePageSize={20}
+            tablePageSize={10}
             modalInfo={``}
             data={stakingTopWallets.data}
             columnsDef={colDef}

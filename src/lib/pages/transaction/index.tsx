@@ -8,12 +8,13 @@ import LineChartWithBar from "lib/components/charts/LineChartWithBar";
 import HeaderSection from "lib/components/basic/HeaderSection";
 
 const colors = [
-  "#ff5722",
-  "#03a9f4",
-  "#ffc107",
-  "#4caf50",
-  "#00bcd4",
+  "#540989",
   "#f44336",
+  "#2e2577",
+  "#990e7a",
+  "#540989",
+  "#4caf50",
+
   "#9c27b0",
   "#673ab7",
   "#3f51b5",
@@ -87,10 +88,42 @@ according section defined in above, i prepare some of static about these topics.
           columns={{ base: 1, md: 2, lg: 2, "2xl": 3 }}
           spacing={{ base: 5, lg: 8 }}
         >
-          {/* first */}
+
+          <StatsCard
+            stat={transactionsTotalInfo.data["tx count"]}
+            title={transactionsTotalInfoNames[2]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsTotalInfo.key}
+          />
+
+          <StatsCard
+            stat={transactionsAVGInfo.data["AVG tx count"]}
+            title={transactionsAVGInfoNames[3]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsAVGInfo.key}
+          />
+
+          <StatsCard
+            stat={transactionsTotalInfo.data["Active users"]}
+            title={transactionsTotalInfoNames[1]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsTotalInfo.key}
+          />
+
           <StatsCard
             stat={transactionsAVGInfo.data["AVG Active users"]}
             title={transactionsAVGInfoNames[0]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsAVGInfo.key}
+          />
+
+          <StatsCard
+            stat={transactionsAVGInfo.data["AVG success rate"]}
+            title={transactionsAVGInfoNames[4]}
             status="inc"
             hasArrowIcon={false}
             link={transactionsAVGInfo.key}
@@ -114,41 +147,8 @@ according section defined in above, i prepare some of static about these topics.
           />
 
           <StatsCard
-            stat={transactionsAVGInfo.data["AVG tx count"]}
-            title={transactionsAVGInfoNames[3]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsAVGInfo.key}
-          />
-
-          <StatsCard
-            stat={transactionsAVGInfo.data["AVG success rate"]}
-            title={transactionsAVGInfoNames[4]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsAVGInfo.key}
-          />
-          {/* second */}
-
-          <StatsCard
             stat={transactionsTotalInfo.data.fee}
             title={transactionsTotalInfoNames[0]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsTotalInfo.key}
-          />
-
-          <StatsCard
-            stat={transactionsTotalInfo.data["Active users"]}
-            title={transactionsTotalInfoNames[1]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsTotalInfo.key}
-          />
-
-          <StatsCard
-            stat={transactionsTotalInfo.data["tx count"]}
-            title={transactionsTotalInfoNames[2]}
             status="inc"
             hasArrowIcon={false}
             link={transactionsTotalInfo.key}
@@ -243,21 +243,16 @@ according section defined in above, i prepare some of static about these topics.
             link={transactionsTodayInfo.key}
           />
         </SimpleGrid>
-        <HeaderSection title="Transaction Count and Status">
-          {`
-####  
-transaction status define as whether a transaction successfully done or transaction doesn't completed of failed. the reasons for failing transaction are varying from lack of gas fee and authorization problem.
-`}
-        </HeaderSection>
         <SimpleGrid
           position={"relative"}
           transition={"all 0.9s ease-in-out"}
-          py={"6"}
+          pb={"6"}
           gap={4}
           zIndex={100}
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
+          <HeaderSection title="Fee" />
           <LineChartWithBar
             data={transactionsFee.data}
             queryLink={transactionsFee.key}
@@ -269,7 +264,6 @@ transaction status define as whether a transaction successfully done or transact
             barDataKey={"Avg tx fee"}
             lineDataKey="AVG tx fee per day"
           />
-
           <LineChartWithBar
             data={transactionsFee.data}
             queryLink={transactionsFee.key}
@@ -283,44 +277,7 @@ transaction status define as whether a transaction successfully done or transact
             lineDataKey="AVG fee"
           />
 
-
-          <LineChartWithBar
-            data={transactionsTPS.data}
-            queryLink={transactionsTPS.key}
-            title={transactionsTPSNames[0]}
-            baseSpan={3}
-            customColor={colors[0]}
-            barColor={colors[2]}
-            xAxisDataKey="Day"
-            barDataKey={"TPS"}
-            lineDataKey="AVG TPS"
-          />
-
-          <LineChartWithBar
-            data={transactionsBlockAge.data}
-            queryLink={transactionsBlockAge.key}
-            title={transactionsBlockAgeNames[0]}
-            baseSpan={3}
-            customColor={colors[0]}
-            barColor={colors[2]}
-            xAxisDataKey="Day"
-            barDataKey={"Block tx"}
-            additionalLineKey={["MA7 block tx"]}
-            lineDataKey="AVG Block tx"
-          />
-
-          <LineChartWithBar
-            data={transactionsBlockAge.data}
-            queryLink={transactionsBlockAge.key}
-            title={transactionsBlockAgeNames[0]}
-            baseSpan={3}
-            customColor={colors[0]}
-            barColor={colors[2]}
-            xAxisDataKey="Day"
-            barDataKey={"block age"}
-            lineDataKey="AVG block age"
-          />
-
+          <HeaderSection title="1." />
           <LineChartWithBar
             data={transactionsTXInfo.data}
             queryLink={transactionsTXInfo.key}
@@ -332,7 +289,6 @@ transaction status define as whether a transaction successfully done or transact
             barDataKey={"Active users"}
             lineDataKey="AVG Active users"
           />
-
           <LineChartWithBar
             data={transactionsTXInfo.data}
             queryLink={transactionsTXInfo.key}
@@ -345,7 +301,6 @@ transaction status define as whether a transaction successfully done or transact
             lineDataKey="AVG tx count"
             additionalLineKey={["MA7 tx count"]}
           />
-
           <ChartBox
             data={transactionsTXInfo.data}
             queryLink={transactionsTXInfo.key}
@@ -356,18 +311,7 @@ transaction status define as whether a transaction successfully done or transact
             areaDataKey="Cum tx count"
           />
 
-          <LineChartWithBar
-            data={transactionsTXInfo.data}
-            queryLink={transactionsTXInfo.key}
-            title={transactionsTXInfoNames[5]}
-            baseSpan={3}
-            customColor={colors[0]}
-            barColor={colors[2]}
-            xAxisDataKey="Day"
-            barDataKey={"Success Rate"}
-            lineDataKey="AVG Success Rate"
-          />
-
+          <HeaderSection title="3." />
           <LineChartWithBar
             data={transactionsNewWallet.data}
             queryLink={transactionsNewWallet.key}
@@ -388,6 +332,58 @@ transaction status define as whether a transaction successfully done or transact
             customColor={colors[0]}
             xAxisDataKey="Day"
             areaDataKey="Cum new wallet"
+          />
+
+          <HeaderSection title="4." />
+          <LineChartWithBar
+            data={transactionsTXInfo.data}
+            queryLink={transactionsTXInfo.key}
+            title={transactionsTXInfoNames[5]}
+            baseSpan={3}
+            customColor={colors[0]}
+            barColor={colors[2]}
+            xAxisDataKey="Day"
+            barDataKey={"Success Rate"}
+            lineDataKey="AVG Success Rate"
+          />
+
+          <HeaderSection title="5." />
+          <HeaderSection title="6." />
+          <LineChartWithBar
+            data={transactionsTPS.data}
+            queryLink={transactionsTPS.key}
+            title={transactionsTPSNames[0]}
+            baseSpan={3}
+            customColor={colors[0]}
+            barColor={colors[2]}
+            xAxisDataKey="Day"
+            barDataKey={"TPS"}
+            lineDataKey="AVG TPS"
+          />
+
+          <HeaderSection title="7." />
+          <LineChartWithBar
+            data={transactionsBlockAge.data}
+            queryLink={transactionsBlockAge.key}
+            title={transactionsBlockAgeNames[0]}
+            baseSpan={3}
+            customColor={colors[0]}
+            barColor={colors[2]}
+            xAxisDataKey="Day"
+            barDataKey={"Block tx"}
+            additionalLineKey={["MA7 block tx"]}
+            lineDataKey="AVG Block tx"
+          />
+          <LineChartWithBar
+            data={transactionsBlockAge.data}
+            queryLink={transactionsBlockAge.key}
+            title={transactionsBlockAgeNames[0]}
+            baseSpan={3}
+            customColor={colors[0]}
+            barColor={colors[2]}
+            xAxisDataKey="Day"
+            barDataKey={"block age"}
+            lineDataKey="AVG block age"
           />
         </SimpleGrid>
       </Box>
