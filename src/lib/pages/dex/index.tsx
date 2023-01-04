@@ -4,7 +4,7 @@ import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
 
-import { DevelopmentProps } from "pages/development";
+import { DexProps } from "pages/dex";
 import DonutChart from "lib/components/charts/DonutChart";
 import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
@@ -24,7 +24,7 @@ const colors = [
   "#607d8b",
 ];
 
-const Development = ({}: DevelopmentProps): JSX.Element => {
+const Development = ({ }: DexProps): JSX.Element => {
   // const developmentMostUsedContractsNames =
   //   developmentMostUsedContracts.title.split(",");
 

@@ -1,7 +1,7 @@
-import Development from "lib/pages/development";
-import {} from "lib/requests/development";
+import Dex from "lib/pages/dex";
+import { } from "lib/requests/dex";
 import { ReturnDataType } from "lib/types/base";
-import {} from "lib/types/types/development";
+import { } from "lib/types/types/dex";
 
 export async function getStaticProps() {
   const [] = await Promise.all([]);
@@ -12,6 +12,6 @@ export async function getStaticProps() {
   };
 }
 
-export interface DevelopmentProps {}
+export interface DexProps { }
 
-export default Development;
+export default Dex;
