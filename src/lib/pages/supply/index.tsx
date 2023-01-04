@@ -3,10 +3,7 @@ import ChartBox from "lib/components/charts/LineChart";
 import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
-
 import { SupplyProps } from "pages/supply";
-import DonutChart from "lib/components/charts/DonutChart";
-import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
 
 const colors = [

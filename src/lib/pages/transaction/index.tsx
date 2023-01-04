@@ -8,13 +8,12 @@ import LineChartWithBar from "lib/components/charts/LineChartWithBar";
 import HeaderSection from "lib/components/basic/HeaderSection";
 
 const colors = [
-  "#540989",
-  "#f44336",
-  "#2e2577",
-  "#990e7a",
-  "#540989",
+  "#ff5722",
+  "#03a9f4",
+  "#ffc107",
   "#4caf50",
-
+  "#00bcd4",
+  "#f44336",
   "#9c27b0",
   "#673ab7",
   "#3f51b5",
@@ -67,12 +66,14 @@ const Governance = ({
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
         <HeaderSection title="Osmosis Transaction">
           {`
-in this page we review all information about Osmosis Transaction in three topic:
-- Transaction Count and Status
-- Transaction Fee
-- Transaction Per Second (TPS)
-- Age of Blocks
-but before deep dive into chart i prepare some statics to see status of network at the glance.
+The following topics are shown on this page:
+* Transactions: Number of transactions made on a blockchain.
+* Active Wallets: Number of those wallets made at least a transaction during curtain period.
+* New Wallets: Number of those wallets made their first transactions.
+* Success Rate: The ratio of successful to unsuccessful transactions in a blockchain. That is, the number of successful transactions divided by the total number of transactions multiplied by 100.
+* Fee: A transaction fee is a small fee that is charged when a transaction is made. This fee is used to reward miners or validators who help confirm the transaction and secure the network. Total fee is the total USD spent during a certain period. Transaction fee is the average USD spent to made a transaction.
+* Transactions Per Second (TPS): Using this metric, we can determine how quickly a blockchain network processes transactions. Count the number of transactions per second.
+* Block time: Block time is the average time it takes for a new block of transactions to be added to a blockchain. So we measure the time (in sec) between two consecutive blocks.
 `}
         </HeaderSection>
         <Box pt={"4"}></Box>

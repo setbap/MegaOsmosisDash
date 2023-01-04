@@ -4,9 +4,6 @@ import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
 import { AirdropProps } from "pages/airdrop";
-
-import DonutChart from "lib/components/charts/DonutChart";
-import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
 import LineChartWithBar from "lib/components/charts/LineChartWithBar";
 
@@ -101,6 +98,7 @@ according section defined in above, i prepare some of static about these topics.
             baseSpan={3}
             customColor={colors[0]}
             xAxisDataKey="Day"
+            defultSelectedRange="all"
             areaDataKey="Cum Claimed Amount"
           />
           <LineChartWithBar

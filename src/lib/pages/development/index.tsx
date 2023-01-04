@@ -2,7 +2,6 @@ import { Box, SimpleGrid } from "@chakra-ui/react";
 import ChartBox from "lib/components/charts/LineChart";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
-
 import { DevelopmentProps } from "pages/development";
 import HeaderSection from "lib/components/basic/HeaderSection";
 import LineChartWithBar from "lib/components/charts/LineChartWithBar";

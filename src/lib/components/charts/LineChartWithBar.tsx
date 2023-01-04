@@ -180,10 +180,6 @@ const LineChartWithBar = ({
     );
   };
 
-  const setChartToAll = () => {
-    setChartData(data);
-    setSelectedDate("all");
-  };
 
   useEffect(() => {
     resetChartData();
@@ -425,7 +421,7 @@ const LineChartWithBar = ({
                 selecteRange={selectedDate}
                 onSelectLastNthDay={filterDateAccordingDay}
                 onSelectRangeDay={filterDateAccordingRange}
-                onResetClick={setChartToAll}
+                onResetClick={resetChartData}
                 minDate={minDate!.toDate()!}
                 maxDate={maxDate!.toDate()}
                 filters={[

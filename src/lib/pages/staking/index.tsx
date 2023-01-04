@@ -9,7 +9,6 @@ import HeaderSection from "lib/components/basic/HeaderSection";
 import ChartBox from "lib/components/charts/LineChart";
 import { ColumnDef } from "@tanstack/react-table";
 import millify from "millify";
-
 import { StakingTopStakers } from "lib/types/types/staking";
 import TableBox from "lib/components/charts/TableBox";
 
