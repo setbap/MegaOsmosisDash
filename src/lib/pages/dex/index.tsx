@@ -8,7 +8,6 @@ import { DevelopmentProps } from "pages/development";
 import DonutChart from "lib/components/charts/DonutChart";
 import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
-import LineChartWithBar from "lib/components/charts/LineChartWithBar";
 
 const colors = [
   "#ff5722",
@@ -25,9 +24,9 @@ const colors = [
   "#607d8b",
 ];
 
-const Development = ({ developmentNewContracts }: DevelopmentProps): JSX.Element => {
-  const developmentNewContractsNames =
-    developmentNewContracts.title.split(",");
+const Development = ({}: DevelopmentProps): JSX.Element => {
+  // const developmentMostUsedContractsNames =
+  //   developmentMostUsedContracts.title.split(",");
 
   return (
     <>
@@ -96,21 +95,7 @@ Development of Contracts show how much of compebility of one network is used by 
           zIndex={100}
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
-        >
-          <LineChartWithBar
-            data={developmentNewContracts.data}
-            queryLink={developmentNewContracts.key}
-            title={developmentNewContractsNames[1]}
-            baseSpan={3}
-            customColor={colors[0]}
-            barColor={colors[2]}
-            xAxisDataKey="Day"
-            barDataKey={"Deployed Contract"}
-            lineDataKey="Avg Deployed Contract"
-          />
-          <ChartBox customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Cum Deployed Contract"} queryLink={developmentNewContracts.key} title={developmentNewContractsNames[0]} data={developmentNewContracts.data} />
-
-        </SimpleGrid>
+        ></SimpleGrid>
       </Box>
     </>
   );

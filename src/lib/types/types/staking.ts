@@ -1,3 +1,8 @@
+export interface StakingOSMOOvertime {
+  Day: string;
+  "Staked $OSMO": number;
+}
+
 export interface StakingOvertime {
   Day: string;
   Actions: string;

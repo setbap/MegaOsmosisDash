@@ -4,11 +4,10 @@ import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
 
-import { DevelopmentProps } from "pages/development";
+import { SupplyProps } from "pages/supply";
 import DonutChart from "lib/components/charts/DonutChart";
 import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
-import LineChartWithBar from "lib/components/charts/LineChartWithBar";
 
 const colors = [
   "#ff5722",
@@ -25,14 +24,13 @@ const colors = [
   "#607d8b",
 ];
 
-const Development = ({ developmentNewContracts }: DevelopmentProps): JSX.Element => {
-  const developmentNewContractsNames =
-    developmentNewContracts.title.split(",");
+const Development = ({ supplyCirculatingSupply, supplyCurrentCirculatingSupply }: SupplyProps): JSX.Element => {
+
 
   return (
     <>
       <NextSeo
-        title={`Osmosis | Development`}
+        title={`Osmosis | Supply`}
         description={`Track the latest stats and trends on ${names.BLOCKCHAIN}`}
         openGraph={{
           url: `https://${names.SITE_URL}/`,
@@ -52,14 +50,7 @@ const Development = ({ developmentNewContracts }: DevelopmentProps): JSX.Element
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Development ">
-          {`
-in this page we review all information about Osmosis Smart Contract Development and increase usage of different smart contract in Osmosis Network 
-
-
-but before deep dive into chart i prepare some statics to see status of network at the glance.
-`}
-        </HeaderSection>
+        <HeaderSection title="Osmosis Supply" />
         <Box pt={"4"}></Box>
         <HeaderSection title="Glance">
           {`
@@ -67,48 +58,32 @@ according section defined in above, i prepare some of static about these topics.
 `}
         </HeaderSection>
         <SimpleGrid
-          my={"6"}
+          my={"4"}
           columns={{ base: 1, md: 2, lg: 2, "2xl": 3 }}
           spacing={{ base: 5, lg: 8 }}
         >
-          {/* <StatsCard
+          <StatsCard
             stat={
-              +(developmentTotalNumberOfContracts as any).data[
-                "Total Contracts Deployed"
-              ] as any
+              supplyCurrentCirculatingSupply.data["Circulating Supply"]
             }
-            title={developmentTotalNumberOfContracts.title}
+            title={supplyCurrentCirculatingSupply.title}
             status="inc"
             hasArrowIcon={false}
-            link={developmentTotalNumberOfContracts.key}
-          /> */}
+            link={supplyCurrentCirculatingSupply.key}
+          />
         </SimpleGrid>
-        <HeaderSection title="Development Contracts ">
-          {`
-Development of Contracts show how much of compebility of one network is used by developers. increasing number of new smart contract show windwos of new idea in network and help growth faster 
-`}
-        </HeaderSection>
+        <HeaderSection title="$OSMO Supply" />
         <SimpleGrid
           position={"relative"}
           transition={"all 0.9s ease-in-out"}
-          py={"6"}
+          pb={"6"}
+          pt={4}
           gap={4}
           zIndex={100}
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
-          <LineChartWithBar
-            data={developmentNewContracts.data}
-            queryLink={developmentNewContracts.key}
-            title={developmentNewContractsNames[1]}
-            baseSpan={3}
-            customColor={colors[0]}
-            barColor={colors[2]}
-            xAxisDataKey="Day"
-            barDataKey={"Deployed Contract"}
-            lineDataKey="Avg Deployed Contract"
-          />
-          <ChartBox customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Cum Deployed Contract"} queryLink={developmentNewContracts.key} title={developmentNewContractsNames[0]} data={developmentNewContracts.data} />
+          <ChartBox customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Circulating Supply"} queryLink={supplyCirculatingSupply.key} title={supplyCirculatingSupply.title} data={supplyCirculatingSupply.data} />
 
         </SimpleGrid>
       </Box>

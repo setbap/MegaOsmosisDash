@@ -3,8 +3,8 @@ import ChartBox from "lib/components/charts/LineChart";
 import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
+import { AirdropProps } from "pages/airdrop";
 
-import { DevelopmentProps } from "pages/development";
 import DonutChart from "lib/components/charts/DonutChart";
 import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
@@ -25,14 +25,14 @@ const colors = [
   "#607d8b",
 ];
 
-const Development = ({ developmentNewContracts }: DevelopmentProps): JSX.Element => {
-  const developmentNewContractsNames =
-    developmentNewContracts.title.split(",");
+const Airdrop = ({ airdropClaimed, airdropTotalInfo }: AirdropProps): JSX.Element => {
+  const airdropClaimedNames = airdropClaimed.title.split(",");
+  const airdropTotalInfoNames = airdropTotalInfo.title.split(",");
 
   return (
     <>
       <NextSeo
-        title={`Osmosis | Development`}
+        title={`Osmosis | Airdrop`}
         description={`Track the latest stats and trends on ${names.BLOCKCHAIN}`}
         openGraph={{
           url: `https://${names.SITE_URL}/`,
@@ -52,14 +52,7 @@ const Development = ({ developmentNewContracts }: DevelopmentProps): JSX.Element
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Development ">
-          {`
-in this page we review all information about Osmosis Smart Contract Development and increase usage of different smart contract in Osmosis Network 
-
-
-but before deep dive into chart i prepare some statics to see status of network at the glance.
-`}
-        </HeaderSection>
+        <HeaderSection title="Osmosis Airdrop " />
         <Box pt={"4"}></Box>
         <HeaderSection title="Glance">
           {`
@@ -71,23 +64,26 @@ according section defined in above, i prepare some of static about these topics.
           columns={{ base: 1, md: 2, lg: 2, "2xl": 3 }}
           spacing={{ base: 5, lg: 8 }}
         >
-          {/* <StatsCard
+          <StatsCard
             stat={
-              +(developmentTotalNumberOfContracts as any).data[
-                "Total Contracts Deployed"
-              ] as any
+              airdropTotalInfo.data["Total Tx count"]
             }
-            title={developmentTotalNumberOfContracts.title}
+            title={airdropTotalInfoNames[1]}
             status="inc"
             hasArrowIcon={false}
-            link={developmentTotalNumberOfContracts.key}
-          /> */}
+            link={airdropTotalInfo.key}
+          />
+          <StatsCard
+            stat={
+              airdropTotalInfo.data["Total Claimed Amount"]
+            }
+            title={airdropTotalInfoNames[0]}
+            status="inc"
+            hasArrowIcon={false}
+            link={airdropTotalInfo.key}
+          />
         </SimpleGrid>
-        <HeaderSection title="Development Contracts ">
-          {`
-Development of Contracts show how much of compebility of one network is used by developers. increasing number of new smart contract show windwos of new idea in network and help growth faster 
-`}
-        </HeaderSection>
+        <HeaderSection title="Development Contracts " />
         <SimpleGrid
           position={"relative"}
           transition={"all 0.9s ease-in-out"}
@@ -97,18 +93,44 @@ Development of Contracts show how much of compebility of one network is used by 
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
+
+          <ChartBox
+            data={airdropClaimed.data}
+            queryLink={airdropClaimed.key}
+            title={airdropClaimedNames[0]}
+            baseSpan={3}
+            customColor={colors[0]}
+            xAxisDataKey="Day"
+            areaDataKey="Cum Claimed Amount"
+          />
           <LineChartWithBar
-            data={developmentNewContracts.data}
-            queryLink={developmentNewContracts.key}
-            title={developmentNewContractsNames[1]}
+            data={airdropClaimed.data}
+            queryLink={airdropClaimed.key}
+            title={airdropClaimedNames[2]}
             baseSpan={3}
             customColor={colors[0]}
             barColor={colors[2]}
             xAxisDataKey="Day"
-            barDataKey={"Deployed Contract"}
-            lineDataKey="Avg Deployed Contract"
+            defultSelectedRange="all"
+            hideLine
+            barDataKey={"Claimed Amount"}
+            lineDataKey={"MA7 Claimed Amount"}
+            additionalLineKey={["MA7 Claimed Amount"]}
           />
-          <ChartBox customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Cum Deployed Contract"} queryLink={developmentNewContracts.key} title={developmentNewContractsNames[0]} data={developmentNewContracts.data} />
+          <LineChartWithBar
+            data={airdropClaimed.data}
+            queryLink={airdropClaimed.key}
+            title={airdropClaimedNames[1]}
+            baseSpan={3}
+            customColor={colors[0]}
+            barColor={colors[2]}
+            xAxisDataKey="Day"
+            hideLine
+            defultSelectedRange="all"
+            barDataKey={"Tx count"}
+            lineDataKey={""}
+            additionalLineKey={["MA7 Tx count"]}
+          />
 
         </SimpleGrid>
       </Box>
@@ -116,4 +138,4 @@ Development of Contracts show how much of compebility of one network is used by 
   );
 };
 
-export default Development;
+export default Airdrop;

@@ -1,6 +1,6 @@
-import {} from "lib/types/base";
-import {} from "lib/types/types/development";
-import {} from "./staking";
+import { } from "lib/types/base";
+import { DevelopmentNewContracts } from "lib/types/types/development";
+import { } from "./staking";
 import {
   getSimpleArrayData,
   getSimpleInfo,
@@ -8,17 +8,12 @@ import {
   summerizeRow,
 } from "./utils";
 
-// export const getDevelopmentMostUsedContracts = () =>
-//   getSimpleArrayData<
-//     DevelopmentMostUsedContracts,
-//     DevelopmentMostUsedContracts
-//   >(
-//     "c889da2a-01fa-496a-831a-c1eff5f22130",
-//     "Share of each Contract in total transactions,Total number of contracts deployed"
-//   );
-
-// export const getDevelopmentTotalNumberOfContracts = () =>
-//   getSimpleInfo<any>(
-//     "1b13bcdc-a114-42ed-9c7e-536bdaa781fc",
-//     "Total number of contracts deployed"
-//   );
+export const getDevelopmentNewContracts = () =>
+  getSimpleArrayData<
+    DevelopmentNewContracts,
+    DevelopmentNewContracts
+  >(
+    "e287009d-7276-47e2-9529-e6bb99e7f4d4",
+    "2. Cumulative new deployed contracts,1. Weekly new deployed contracts",
+    "Day"
+  );

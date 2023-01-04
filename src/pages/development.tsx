@@ -1,17 +1,21 @@
 import Development from "lib/pages/development";
-import {} from "lib/requests/development";
+import { getDevelopmentNewContracts } from "lib/requests/development";
 import { ReturnDataType } from "lib/types/base";
-import {} from "lib/types/types/development";
+import { DevelopmentNewContracts } from "lib/types/types/development";
 
 export async function getStaticProps() {
-  const [] = await Promise.all([]);
+  const [developmentNewContracts] = await Promise.all([
+    getDevelopmentNewContracts()
+  ]);
 
   return {
-    props: {},
+    props: { developmentNewContracts },
     revalidate: 10 * 60,
   };
 }
 
-export interface DevelopmentProps {}
+export interface DevelopmentProps {
+  developmentNewContracts: ReturnDataType<DevelopmentNewContracts[]>;
+}
 
 export default Development;

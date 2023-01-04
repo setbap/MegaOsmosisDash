@@ -76,6 +76,7 @@ const Staking = ({
   stakingTop10PoolsWithDayUniqueVolume,
   stakingTop30HighestPools,
   stakingTopWallets,
+  stakingOSMOOvertime
 }: StakingProps): JSX.Element => {
   const stakingOvertimeNames = stakingOvertime.title.split(",");
   const stakingDailyAverageNames = stakingDailyAverage.title.split(",");
@@ -120,14 +121,25 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
           <HeaderSection title="Staking Over time" />
-          {["cumTXCount", "tXCount", "cumVolume", "uniqueWallet", "volume"].map(
-            (item, index) => (
+
+          <ChartBox
+            xAxisDataKey={"Day"}
+            areaDataKey={"Staked $OSMO"}
+            title={stakingOSMOOvertime.title}
+            baseSpan={1}
+            customColor={colors[0]}
+            queryLink={stakingOSMOOvertime.key}
+            data={stakingOSMOOvertime.data}
+          />
+
+          {[["tXCount", 1], ["uniqueWallet", 3], ["volume", 4], ["cumTXCount", 0], ["cumVolume", 2]].map(
+            ([item, place], index) => (
               <StackedAreaChart
                 key={index}
                 values={stakingOvertime.data[item]}
                 queryLink={stakingOvertime.key}
                 modalInfo=""
-                title={stakingOvertimeNames[index]}
+                title={stakingOvertimeNames[place as number]}
                 baseSpan={1}
                 dataKey="Name"
                 oyLabel="$Osmosis"
@@ -144,25 +156,25 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
 
           <HeaderSection title="Daily average" />
           {[
-            "AVG TX volume",
-            "AVG tx count",
-            "AVG unique wallet",
-            "AVG volume",
-          ].map((item, index) => (
+            ["AVG tx count", 1],
+            ["AVG unique wallet", 2],
+            ["AVG volume", 3],
+            ["AVG TX volume", 0],
+          ].map(([item, place], index) => (
             <BarGraph
               key={item}
               values={stakingDailyAverage.data}
               queryLink={stakingDailyAverage.key}
               modalInfo=""
               isNotDate
-              title={stakingDailyAverageNames[index]}
+              title={stakingDailyAverageNames[place as number]}
               baseSpan={1}
               dataKey="Actions"
               oyLabel="$Luna"
               oxLabel="Action"
               labels={[
                 {
-                  key: item,
+                  key: item as string,
                   color: colors[index],
                 },
               ]}
@@ -190,15 +202,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
             nameKey="Pool name"
             dataKey="tx count"
           />
-          <DonutChart
-            queryLink={stakingTop10PoolsUniqueStakers.key}
-            data={stakingTop10PoolsUniqueStakers.data}
-            modalInfo=""
-            baseSpan={1}
-            title={stakingTop10PoolsUniqueStakers.title}
-            nameKey="Pool name"
-            dataKey="Unique wallet"
-          />
+
           <DonutChart
             queryLink={stakingTop10PoolsVolume.key}
             data={stakingTop10PoolsVolume.data}
@@ -208,7 +212,15 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
             nameKey="Pool name"
             dataKey="Volume"
           />
-
+          <DonutChart
+            queryLink={stakingTop10PoolsUniqueStakers.key}
+            data={stakingTop10PoolsUniqueStakers.data}
+            modalInfo=""
+            baseSpan={1}
+            title={stakingTop10PoolsUniqueStakers.title}
+            nameKey="Pool name"
+            dataKey="Unique wallet"
+          />
           <HeaderSection title="Weekly top 10 pools" />
 
           <BarGraph
@@ -222,24 +234,6 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
             oxLabel="Day"
             hideLegend
             labels={stakingTop10PoolsWithDayTransaction.data.actions.map(
-              (item: string, index: number) => ({
-                key: item,
-                color: colors[index % colors.length],
-              })
-            )}
-          />
-
-          <BarGraph
-            values={stakingTop10PoolsWithDayUniqueStakers.data.uniqueWallet}
-            queryLink={stakingTop10PoolsWithDayUniqueStakers.key}
-            modalInfo=""
-            title={stakingTop10PoolsWithDayUniqueStakers.title}
-            baseSpan={3}
-            dataKey="Name"
-            oyLabel=""
-            oxLabel="Day"
-            hideLegend
-            labels={stakingTop10PoolsWithDayUniqueStakers.data.actions.map(
               (item: string, index: number) => ({
                 key: item,
                 color: colors[index % colors.length],
@@ -264,7 +258,23 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inv
               })
             )}
           />
-
+          <BarGraph
+            values={stakingTop10PoolsWithDayUniqueStakers.data.uniqueWallet}
+            queryLink={stakingTop10PoolsWithDayUniqueStakers.key}
+            modalInfo=""
+            title={stakingTop10PoolsWithDayUniqueStakers.title}
+            baseSpan={3}
+            dataKey="Name"
+            oyLabel=""
+            oxLabel="Day"
+            hideLegend
+            labels={stakingTop10PoolsWithDayUniqueStakers.data.actions.map(
+              (item: string, index: number) => ({
+                key: item,
+                color: colors[index % colors.length],
+              })
+            )}
+          />
           <HeaderSection title="Top 30 pools based on current balance" />
           <BarGraph
             values={stakingTop30HighestPools.data}

@@ -2,6 +2,7 @@ import Staking from "lib/pages/staking";
 import {
   getStakingActiveStakingPool,
   getStakingDailyAverage,
+  getStakingOSMOOvertime,
   getStakingOvertime,
   getStakingTop10PoolsTransaction,
   getStakingTop10PoolsUniqueStakers,
@@ -16,9 +17,8 @@ import { ReturnDataType } from "lib/types/base";
 import {
   StakingActiveStakingPool,
   StakingDailyAverage,
-  StakingOvertime,
+  StakingOSMOOvertime,
   StakingTop10Pools,
-  StakingTop10PoolsWithDay,
   StakingTop30HighestPools,
   StakingTopStakers,
 } from "lib/types/types/staking";
@@ -36,6 +36,7 @@ export async function getStaticProps() {
     stakingTop10PoolsWithDayUniqueVolume,
     stakingTop30HighestPools,
     stakingTopWallets,
+    stakingOSMOOvertime
   ] = await Promise.all([
     getStakingOvertime(),
     getStakingDailyAverage(),
@@ -48,6 +49,7 @@ export async function getStaticProps() {
     getStakingTop10PoolsWithDayUniqueVolume(),
     getStakingTop30HighestPools(),
     getStakingTopWallets(),
+    getStakingOSMOOvertime(),
   ]);
   return {
     props: {
@@ -62,6 +64,7 @@ export async function getStaticProps() {
       stakingTop10PoolsWithDayUniqueVolume,
       stakingTop30HighestPools,
       stakingTopWallets,
+      stakingOSMOOvertime
     },
     revalidate: 10 * 60,
   };
@@ -79,4 +82,5 @@ export interface StakingProps {
   stakingTop10PoolsWithDayUniqueVolume: ReturnDataType<any>;
   stakingTop30HighestPools: ReturnDataType<StakingTop30HighestPools[]>;
   stakingTopWallets: ReturnDataType<StakingTopStakers[]>;
+  stakingOSMOOvertime: ReturnDataType<StakingOSMOOvertime[]>
 }
