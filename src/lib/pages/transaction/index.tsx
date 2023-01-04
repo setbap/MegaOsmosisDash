@@ -67,13 +67,13 @@ const Governance = ({
         <HeaderSection title="Osmosis Transaction">
           {`
 The following topics are shown on this page:
-* Transactions: Number of transactions made on a blockchain.
-* Active Wallets: Number of those wallets made at least a transaction during curtain period.
-* New Wallets: Number of those wallets made their first transactions.
-* Success Rate: The ratio of successful to unsuccessful transactions in a blockchain. That is, the number of successful transactions divided by the total number of transactions multiplied by 100.
-* Fee: A transaction fee is a small fee that is charged when a transaction is made. This fee is used to reward miners or validators who help confirm the transaction and secure the network. Total fee is the total USD spent during a certain period. Transaction fee is the average USD spent to made a transaction.
-* Transactions Per Second (TPS): Using this metric, we can determine how quickly a blockchain network processes transactions. Count the number of transactions per second.
-* Block time: Block time is the average time it takes for a new block of transactions to be added to a blockchain. So we measure the time (in sec) between two consecutive blocks.
+* __Transactions__ : Number of transactions made on a blockchain.
+* __Active Wallets__ : Number of those wallets made at least a transaction during curtain period.
+* __New Wallets__ : Number of those wallets made their first transactions.
+* __Success Rate__ : The ratio of successful to unsuccessful transactions in a blockchain. That is, the number of successful transactions divided by the total number of transactions multiplied by 100.
+* __Fee__ : A transaction fee is a small fee that is charged when a transaction is made. This fee is used to reward miners or validators who help confirm the transaction and secure the network. Total fee is the total USD spent during a certain period. Transaction fee is the average USD spent to made a transaction.
+* __Transactions Per Second (TPS)__ : Using this metric, we can determine how quickly a blockchain network processes transactions. Count the number of transactions per second.
+* __Block time__ : Block time is the average time it takes for a new block of transactions to be added to a blockchain. So we measure the time (in sec) between two consecutive blocks.
 `}
         </HeaderSection>
         <Box pt={"4"}></Box>
