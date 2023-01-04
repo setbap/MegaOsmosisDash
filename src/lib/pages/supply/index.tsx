@@ -83,7 +83,7 @@ according section defined in above, i prepare some of static about these topics.
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
-          <ChartBox customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Circulating Supply"} queryLink={supplyCirculatingSupply.key} title={supplyCirculatingSupply.title} data={supplyCirculatingSupply.data} />
+          <ChartBox baseSpan={3} customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Circulating Supply"} queryLink={supplyCirculatingSupply.key} title={supplyCirculatingSupply.title} data={supplyCirculatingSupply.data} />
 
         </SimpleGrid>
       </Box>

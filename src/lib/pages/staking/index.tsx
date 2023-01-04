@@ -47,21 +47,15 @@ const colDef: ColumnDef<StakingTopStakers>[] = [
     header: () => <span>Staked Balance</span>,
   },
   {
-    accessorFn: (row) => row["% Staked Supply"],
-    id: "Staked Supply",
+    accessorFn: (row) => row["Staking validators"],
+    id: "Staking validators",
     cell: (info) =>
       millify(info.getValue() as number, {
         precision: 2,
         decimalSeparator: ".",
       }) + " %",
     header: (props) => <span>{props.header.id}</span>,
-  },
-  {
-    accessorFn: (row) => row["Staking Pools"],
-    id: "Staking Pools",
-    cell: (info) => info.getValue(),
-    header: (props) => <span>{props.header.id}</span>,
-  },
+  }
 ];
 
 const Staking = ({
@@ -104,12 +98,7 @@ const Staking = ({
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Staking">
-          {`
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ipsa cumque inventore fugiat modi qui reiciendis possimus iste blanditiis, dolorum similique explicabo eius ipsum veniam aspernatur ut, laborum consectetur sapiente. Aspernatur ipsum odit dolorem harum vero id! Distinctio, libero a.
-`}
-        </HeaderSection>
-
+        <HeaderSection title="Osmosis Staking" />
         <SimpleGrid
           position={"relative"}
           transition={"all 0.9s ease-in-out"}

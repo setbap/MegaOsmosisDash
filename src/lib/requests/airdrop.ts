@@ -13,12 +13,12 @@ export const getAirdropClaimed = () =>
     AirdropClaimed
   >(
     "0f2d229d-0721-4e2d-853a-f0a88ca31a0e",
-    "1. Cumulative claimed amount(in OSMO),2. Weekly number of transactions,1. Weekly claimed amount(in OSMO)",
+    "Cumulative claimed amount(in OSMO),Weekly number of transactions,Weekly claimed amount(in OSMO)",
     "Day"
   );
 
 export const getAirdropTotalInfo = () =>
   getSimpleInfo<AirdropTotalInfo>(
     "758eccc8-aa38-4b6b-83c3-9736d837c8b1",
-    "2. Total claimed transactions,1. Total OSMO claimed"
+    "Total claimed transactions,Total OSMO claimed"
   );

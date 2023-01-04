@@ -74,7 +74,6 @@ function TableBox<T>({
         display="flex"
         flexDir={"column"}
         alignItems="center"
-        height={"480px"}
         id={title}
         overflowX='hidden'
 

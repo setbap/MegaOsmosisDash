@@ -14,6 +14,6 @@ export const getDevelopmentNewContracts = () =>
     DevelopmentNewContracts
   >(
     "e287009d-7276-47e2-9529-e6bb99e7f4d4",
-    "2. Cumulative new deployed contracts,1. Weekly new deployed contracts",
+    "Cumulative new deployed contracts,Weekly new deployed contracts",
     "Day"
   );

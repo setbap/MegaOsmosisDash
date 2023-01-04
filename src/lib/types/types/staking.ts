@@ -50,8 +50,7 @@ export interface StakingTop30HighestPools {
   "Current stake amount": number;
 }
 export interface StakingTopStakers {
-  Staker: string;
+  "Staker": string;
   "Staked Balance": number;
-  "% Staked Supply": number;
-  "Staking Pools": string;
+  "Staking validators": string;
 }

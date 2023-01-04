@@ -239,14 +239,12 @@ export const getStakingTop10PoolsWithDayUniqueVolume: () => Promise<
   };
 };
 
-//  6
+
 export const getStakingTop30HighestPools = () =>
   getSimpleArrayData<StakingTop30HighestPools, StakingTop30HighestPools>(
     "c8aab201-bf72-4987-9bc9-7e2dd5e33d3f",
     "Top 30 Pools based on current balance"
   );
-
-// 7
 
 export const getStakingTopWallets = () =>
   getSimpleArrayData<StakingTopStakers, StakingTopStakers>(

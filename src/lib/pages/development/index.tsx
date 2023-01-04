@@ -1,12 +1,9 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import ChartBox from "lib/components/charts/LineChart";
-import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
 
 import { DevelopmentProps } from "pages/development";
-import DonutChart from "lib/components/charts/DonutChart";
-import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
 import LineChartWithBar from "lib/components/charts/LineChartWithBar";
 
@@ -67,21 +64,11 @@ according section defined in above, i prepare some of static about these topics.
 `}
         </HeaderSection>
         <SimpleGrid
-          my={"6"}
+          my={"2"}
           columns={{ base: 1, md: 2, lg: 2, "2xl": 3 }}
           spacing={{ base: 5, lg: 8 }}
         >
-          {/* <StatsCard
-            stat={
-              +(developmentTotalNumberOfContracts as any).data[
-                "Total Contracts Deployed"
-              ] as any
-            }
-            title={developmentTotalNumberOfContracts.title}
-            status="inc"
-            hasArrowIcon={false}
-            link={developmentTotalNumberOfContracts.key}
-          /> */}
+
         </SimpleGrid>
         <HeaderSection title="Development Contracts ">
           {`
@@ -101,14 +88,14 @@ Development of Contracts show how much of compebility of one network is used by 
             data={developmentNewContracts.data}
             queryLink={developmentNewContracts.key}
             title={developmentNewContractsNames[1]}
-            baseSpan={3}
+            baseSpan={2}
             customColor={colors[0]}
             barColor={colors[2]}
             xAxisDataKey="Day"
             barDataKey={"Deployed Contract"}
             lineDataKey="Avg Deployed Contract"
           />
-          <ChartBox customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Cum Deployed Contract"} queryLink={developmentNewContracts.key} title={developmentNewContractsNames[0]} data={developmentNewContracts.data} />
+          <ChartBox customColor={colors[1]} baseSpan={1} xAxisDataKey={"Day"} areaDataKey={"Cum Deployed Contract"} queryLink={developmentNewContracts.key} title={developmentNewContractsNames[0]} data={developmentNewContracts.data} />
 
         </SimpleGrid>
       </Box>

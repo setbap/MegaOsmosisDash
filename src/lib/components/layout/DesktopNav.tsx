@@ -88,13 +88,13 @@ const DesktopLinkNav = () => {
                 router.push(link.path);
               }}
               key={link.name}
+              leftIcon={link.icon({})}
             >
               {link.name}
             </Button>
           ))}
         </Box>
 
-        {router.pathname !== "/about" && <CurrentStatusPage />}
       </Box>
     </Box>
   );
@@ -122,7 +122,7 @@ const DesktopTopNav = () => {
       <Box mx={"2"} display={"flex"} alignItems="center">
         <Image
           alt="Near network image"
-          style={{ transform: "scale(1)",filter:'grayscale(0.2)', zIndex: "1" }}
+          style={{ transform: "scale(1)", filter: 'grayscale(0.2)', zIndex: "1" }}
           width={32}
           height={32}
           src={names.BLOCKCHAIN_HEADER_IMAGE_URL}
@@ -148,9 +148,11 @@ const DesktopTopNav = () => {
       />
 
       <Box experimental_spaceX={"2"} mr={"4"} textAlign="end">
+        {router.pathname !== "/about" && <CurrentStatusPage />}
+
         <IconButton
           zIndex={1}
-          bg="#fff2"
+
           size={"sm"}
           onClick={() => router.push("/about")}
           aria-label="About"
