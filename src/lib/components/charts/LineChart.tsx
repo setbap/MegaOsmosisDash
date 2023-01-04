@@ -181,6 +181,12 @@ const ChartBox = ({
     resetChartData();
   }, []);
 
+  const resetToAll = () => {
+    setChartData(data)
+    setSelectedDate('all')
+    return;
+  }
+
   return (
     <GridItem
       rowSpan={1}
@@ -395,7 +401,7 @@ const ChartBox = ({
                 selecteRange={selectedDate}
                 onSelectLastNthDay={filterDateAccordingDay}
                 onSelectRangeDay={filterDateAccordingRange}
-                onResetClick={resetChartData}
+                onResetClick={resetToAll}
                 minDate={minDate!.toDate()!}
                 maxDate={maxDate!.toDate()}
                 filters={[
