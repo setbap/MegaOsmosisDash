@@ -97,7 +97,14 @@ const Staking = ({
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Staking" />
+        <HeaderSection title="$OSMO staking">{`
+OSMO staking is a process by which users can earn rewards for holding OSMO tokens. Users will start to accrue rewards based on the amount of OSMO tokens they have staked and the current staking rate. Generally, the higher the amount of OSMO tokens staked, the higher the rewards will be.
+
+To be eligible for staking rewards with $OSMO, users must have at least 100 OSMO in their wallet and must keep it staked for a minimum of seven days. 
+
+Unstaking $OSMO tokens from the Osmosis protocol can take up to 14 days. This is due to the fact that there is a waiting period before the tokens are officially released from the staking contract. After the 14-day waiting period, the tokens will be released and sent to the user's wallet address.
+`}</HeaderSection>
+
         <SimpleGrid
           position={"relative"}
           transition={"all 0.9s ease-in-out"}
