@@ -380,7 +380,7 @@ according section defined in above, i prepare some of static about these topics.
           <LineChartWithBar
             data={transactionsBlockAge.data}
             queryLink={transactionsBlockAge.key}
-            title={transactionsBlockAgeNames[0]}
+            title={transactionsBlockAgeNames[2]}
             baseSpan={3}
             customColor={colors[0]}
             barColor={colors[2]}

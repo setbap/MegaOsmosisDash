@@ -54,7 +54,23 @@ const Stablecoins = ({ stablecoinsAverage, stablecoinsCompetition, stablecoinsOv
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Stablecoins" />
+        <HeaderSection title="Osmosis Stablecoins">
+          {`
+Osmosis currently supports a range of stablecoins, including USDC, USDT, DAI, BUSD and eEUR.
+
+Here we are going to focus on stablecoins transactions on this network.
+
+Now I describe each section:
+
+* **Stablecoins overview:** In this section, you could see some simple metrics include number of transactions and users, and volume of stablecoin transactions.
+
+  
+
+* **Daily average:** In this section, you can see on average, how much stablecoin was transferred per day. how many users transferred their stablecoins per day. How many stablecoins transactions were made per day. Only the last three months are considered.
+
+
+`}
+        </HeaderSection>
 
         <SimpleGrid
           my={"4"}

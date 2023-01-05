@@ -13,13 +13,13 @@ import { getSimpleArrayData, getSimpleInfo } from "./utils";
 export const getTransactionsAVGInfo = () =>
   getSimpleInfo<TransactionsAVGInfo>(
     "c83e4f4b-e191-4789-9afe-ec5025a6c1f1",
-    "Daily active wallets,Daily fee (in USD) spent,Transactions fee (in USD),Daily transactions,Transaction success rate"
+    "Daily active wallets,Daily fee (in USD) collected,Transactions fee (in USD),Daily transactions,Transaction success rate"
   );
 
 export const getTransactionsTotalInfo = () =>
   getSimpleInfo<TransactionsTotalInfo>(
     "e2c01ca2-5ddb-4ab3-b31d-6d2d58a0c14b",
-    "Total fee (in USD) spent,Total wallets,Total transactions"
+    "Total fee (in USD) collected,Total wallets,Total transactions"
   );
 
 export const getTransactionsTPS = () =>
@@ -40,7 +40,7 @@ export const getTransactionsFee = () =>
 export const getTransactionsBlockAge = () =>
   getSimpleArrayData<TransactionsBlockAge, TransactionsBlockAge>(
     "7dc7afa5-3dae-4af8-b283-2a1ec9aa5c76",
-    "Weekly block time,Block time,Weekly block time,Number of transactions per block (TPB)",
+    "Weekly number of transactions per block,Weekly block time,Weekly block time,Number of transactions per block (TPB)",
     "Day"
   );
 
