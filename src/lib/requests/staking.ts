@@ -113,19 +113,19 @@ export const getStakingActiveStakingPool = () =>
 export const getStakingTop10PoolsTransaction = () =>
   getSimpleArrayData<StakingTop10Pools, StakingTop10Pools>(
     "754ecb49-c216-42b3-b2b3-381f3a418cc0",
-    "Top 10 validators based on staking transactions"
+    "Top validators based on staking transactions"
   );
 
 export const getStakingTop10PoolsUniqueStakers = () =>
   getSimpleArrayData<StakingTop10Pools, StakingTop10Pools>(
     "508df983-43c5-4aa8-9275-ae6df17f0db5",
-    "Top 10 validators based on unique stakers"
+    "Top validators based on unique stakers"
   );
 
 export const getStakingTop10PoolsVolume = () =>
   getSimpleArrayData<StakingTop10Pools, StakingTop10Pools>(
     "db999d19-5d98-413c-8974-024a93e574e6",
-    "Top 10 validators based on staking volume"
+    "Top validators based on staking volume"
   );
 
 // 5
@@ -243,11 +243,11 @@ export const getStakingTop10PoolsWithDayUniqueVolume: () => Promise<
 export const getStakingTop30HighestPools = () =>
   getSimpleArrayData<StakingTop30HighestPools, StakingTop30HighestPools>(
     "c8aab201-bf72-4987-9bc9-7e2dd5e33d3f",
-    "Top 30 validators based on current balance"
+    "Top validators based on current power"
   );
 
 export const getStakingTopWallets = () =>
   getSimpleArrayData<StakingTopStakers, StakingTopStakers>(
     "96d8e1d7-2687-4548-8a72-197b1051588f",
-    "Top 30 validators based on current balance"
+    "Top stakers"
   );

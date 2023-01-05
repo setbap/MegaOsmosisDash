@@ -110,7 +110,7 @@ Now I describe each section:
 
   
 
-- **Active Staking Pool:** Shows the number of validators used to staking per certain period.
+- **Active Staking Validator:** Shows the number of validators used to staking per certain period.
 
   
 
@@ -214,7 +214,7 @@ Now I describe each section:
             data={stakingActiveStakingPool.data}
           />
 
-          <HeaderSection title="Top 10 validators" />
+          <HeaderSection title="Top validators" />
           <DonutChart
             queryLink={stakingTop10PoolsTransaction.key}
             data={stakingTop10PoolsTransaction.data}
@@ -297,7 +297,7 @@ Now I describe each section:
               })
             )}
           />
-          <HeaderSection title="Top 30 validators based on current balance" />
+          <HeaderSection title="Top validators based on current power" />
           <BarGraph
             values={stakingTop30HighestPools.data}
             queryLink={stakingTop30HighestPools.key}
@@ -307,7 +307,7 @@ Now I describe each section:
             baseSpan={3}
             dataKey="Pool name"
             oyLabel=""
-            oxLabel="Pool name"
+            oxLabel="$OSMO"
             hideLegend
             labels={[
               {
