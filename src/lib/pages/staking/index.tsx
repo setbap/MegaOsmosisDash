@@ -148,13 +148,14 @@ Now I describe each section:
             areaDataKey={"Staked $OSMO"}
             title={stakingOSMOOvertime.title}
             baseSpan={1}
+            oyLabel={"$OSMO"}
             customColor={colors[0]}
             queryLink={stakingOSMOOvertime.key}
             data={stakingOSMOOvertime.data}
           />
 
-          {[["tXCount", 1], ["uniqueWallet", 3], ["volume", 4], ["cumTXCount", 0], ["cumVolume", 2]].map(
-            ([item, place], index) => (
+          {[["tXCount", 1, ""], ["uniqueWallet", 3, "$OSMO"], ["volume", 4, ""], ["cumTXCount", 0, ""], ["cumVolume", 2, "$OSMO"]].map(
+            ([item, place, yLabel], index) => (
               <StackedAreaChart
                 key={index}
                 values={stakingOvertime.data[item]}
@@ -163,7 +164,7 @@ Now I describe each section:
                 title={stakingOvertimeNames[place as number]}
                 baseSpan={1}
                 dataKey="Name"
-                oyLabel="$Osmosis"
+                oyLabel={yLabel as string}
                 oxLabel="Action"
                 labels={stakingOvertime.data.actions.map(
                   (item: string, index: number) => ({
@@ -202,7 +203,7 @@ Now I describe each section:
             />
           ))}
 
-          <HeaderSection title="Active Staking Pool" />
+          <HeaderSection title="Active Staking validators" />
           <ChartBox
             baseSpan={3}
             customColor={colors[2]}
@@ -213,7 +214,7 @@ Now I describe each section:
             data={stakingActiveStakingPool.data}
           />
 
-          <HeaderSection title="Top 10 pools" />
+          <HeaderSection title="Top 10 validators" />
           <DonutChart
             queryLink={stakingTop10PoolsTransaction.key}
             data={stakingTop10PoolsTransaction.data}
@@ -242,7 +243,7 @@ Now I describe each section:
             nameKey="Pool name"
             dataKey="Unique wallet"
           />
-          <HeaderSection title="Weekly top 10 pools" />
+          <HeaderSection title="Weekly top 10 validators" />
 
           <BarGraph
             values={stakingTop10PoolsWithDayTransaction.data.txCount}
@@ -296,7 +297,7 @@ Now I describe each section:
               })
             )}
           />
-          <HeaderSection title="Top 30 pools based on current balance" />
+          <HeaderSection title="Top 30 validators based on current balance" />
           <BarGraph
             values={stakingTop30HighestPools.data}
             queryLink={stakingTop30HighestPools.key}
