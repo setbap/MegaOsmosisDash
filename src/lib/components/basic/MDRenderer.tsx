@@ -15,7 +15,7 @@ export default function MDRenderer({ children }: any) {
           </chakra.p>
         ),
         li: (props) => (
-          <chakra.li fontWeight={"normal"} lineHeight={"6"}>
+          <chakra.li fontWeight={"normal"} lineHeight={"5"}>
             {props.children}
           </chakra.li>
         ),

@@ -25,7 +25,7 @@ export const getTransactionsTotalInfo = () =>
 export const getTransactionsTPS = () =>
   getSimpleArrayData<TransactionsTPS, TransactionsTPS>(
     "6a893388-4c70-405c-9b1c-6c4bc7ed53d9",
-    "Number of transactions per second (TPS),Weekly number of transactions per second (TPS)",
+    "Number of transactions per second (TPS),Number of transactions per second (TPS)",
     "Day"
   );
 
@@ -40,7 +40,7 @@ export const getTransactionsFee = () =>
 export const getTransactionsBlockAge = () =>
   getSimpleArrayData<TransactionsBlockAge, TransactionsBlockAge>(
     "7dc7afa5-3dae-4af8-b283-2a1ec9aa5c76",
-    "Weekly number of transactions per block (TPB),Block time,Weekly block time,Number of transactions per block (TPB)",
+    "Weekly block time,Block time,Weekly block time,Number of transactions per block (TPB)",
     "Day"
   );
 
