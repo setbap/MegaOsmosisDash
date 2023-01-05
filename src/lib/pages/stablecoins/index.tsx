@@ -173,20 +173,20 @@ according section defined in above, i prepare some of static about these topics.
             />
           ))}
           <HeaderSection title="Daily average" />
-          {[, ['AVG TX Count', 1], ['AVG volume', 3], ['AVG Unique user', 2], ['AVG TX Volume', 0]].map(([type, num]: any, index) => (
+          {[['AVG TX Count', 1], ['AVG volume', 3], ['AVG Unique user', 2], ['AVG TX Volume', 0]].map(([type, num]: any, index) => (
             <BarGraph
               values={stablecoinsCompetition.data}
               queryLink={stablecoinsCompetition.key}
               modalInfo=""
               title={stablecoinsCompetitionNames[num]}
-              baseSpan={3}
+              baseSpan={1}
               isNotDate
               dataKey="Stablecoin"
               oyLabel=""
               oxLabel=""
               labels={[{
                 key: type,
-                color: colors[0]
+                color: colors[index]
               }]}
             />
           ))}
