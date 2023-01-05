@@ -49,7 +49,11 @@ const Airdrop = ({ airdropClaimed, airdropTotalInfo }: AirdropProps): JSX.Elemen
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Airdrop " />
+        <HeaderSection title="Osmosis Airdrop">
+          {`
+Osmosis is a cryptocurrency that was airdropped to addresses that were staking ATOM at the time of the launch of the Stargate upgrade. A snapshot of ATOM stakers was taken on February 18, 2021, in which eligible participants received 50 million OSMO tokens. The airdrop was designed to encourage more people to get involved in the Cosmos Hub and to support the growth of the ecosystem.
+`}
+        </HeaderSection>
         <Box pt={"4"}></Box>
         <HeaderSection title="Glance">
           {`
