@@ -90,13 +90,7 @@ according section defined in above, i prepare some of static about these topics.
           spacing={{ base: 5, lg: 8 }}
         >
 
-          <StatsCard
-            stat={transactionsAVGInfo.data["AVG tx count"]}
-            title={transactionsAVGInfoNames[3]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsAVGInfo.key}
-          />
+
 
           <StatsCard
             stat={transactionsTotalInfo.data["tx count"]}
@@ -105,15 +99,6 @@ according section defined in above, i prepare some of static about these topics.
             hasArrowIcon={false}
             link={transactionsTotalInfo.key}
           />
-
-          <StatsCard
-            stat={transactionsAVGInfo.data["AVG Active users"]}
-            title={transactionsAVGInfoNames[0]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsAVGInfo.key}
-          />
-
           <StatsCard
             stat={transactionsTotalInfo.data["Active users"]}
             title={transactionsTotalInfoNames[1]}
@@ -121,15 +106,28 @@ according section defined in above, i prepare some of static about these topics.
             hasArrowIcon={false}
             link={transactionsTotalInfo.key}
           />
+          <StatsCard
+            stat={transactionsTotalInfo.data.fee}
+            title={transactionsTotalInfoNames[0]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsTotalInfo.key}
+          />
 
           <StatsCard
-            stat={transactionsAVGInfo.data["AVG success rate"]}
-            title={transactionsAVGInfoNames[4]}
+            stat={transactionsAVGInfo.data["AVG tx count"]}
+            title={transactionsAVGInfoNames[3]}
             status="inc"
             hasArrowIcon={false}
             link={transactionsAVGInfo.key}
           />
-
+          <StatsCard
+            stat={transactionsAVGInfo.data["AVG Active users"]}
+            title={transactionsAVGInfoNames[0]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsAVGInfo.key}
+          />
           <StatsCard
             stat={transactionsAVGInfo.data["AVG fee"]}
             title={transactionsAVGInfoNames[1]}
@@ -137,7 +135,13 @@ according section defined in above, i prepare some of static about these topics.
             hasArrowIcon={false}
             link={transactionsAVGInfo.key}
           />
-
+          <StatsCard
+            stat={transactionsAVGInfo.data["AVG success rate"]}
+            title={transactionsAVGInfoNames[4]}
+            status="inc"
+            hasArrowIcon={false}
+            link={transactionsAVGInfo.key}
+          />
           <StatsCard
             stat={transactionsAVGInfo.data["AVG tx fee per day"]}
             title={transactionsAVGInfoNames[2]}
@@ -147,13 +151,7 @@ according section defined in above, i prepare some of static about these topics.
             link={transactionsAVGInfo.key}
           />
 
-          <StatsCard
-            stat={transactionsTotalInfo.data.fee}
-            title={transactionsTotalInfoNames[0]}
-            status="inc"
-            hasArrowIcon={false}
-            link={transactionsTotalInfo.key}
-          />
+
 
           <StatsCard
             stat={transactionsTPS.data.at(-1)?.["AVG TPS"] ?? 6}
@@ -366,7 +364,7 @@ according section defined in above, i prepare some of static about these topics.
             lineDataKey="AVG TPS"
           />
 
-          <HeaderSection title="Block Age" />
+          <HeaderSection title="Block Time" />
           <LineChartWithBar
             data={transactionsBlockAge.data}
             queryLink={transactionsBlockAge.key}

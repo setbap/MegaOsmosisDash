@@ -40,21 +40,21 @@ export const getTransactionsFee = () =>
 export const getTransactionsBlockAge = () =>
   getSimpleArrayData<TransactionsBlockAge, TransactionsBlockAge>(
     "7dc7afa5-3dae-4af8-b283-2a1ec9aa5c76",
-    "Weekly number of transactions per block,Block age,Weekly block age,Number of transactions per block",
+    "Weekly number of transactions per block (TPB),Block time,Weekly block time,Number of transactions per block (TPB)",
     "Day"
   );
 
 export const getTransactionsTXInfo = () =>
   getSimpleArrayData<TransactionsTXInfo, TransactionsTXInfo>(
     "8e170a1f-1b5c-4429-acd6-0917751090e0",
-    " , ,Daily number of active wallets,Daily number of transactions,Cumulative number of transaction,Daily transaction success rate",
+    " , ,Weekly number of active wallets,Weekly number of transactions,Cumulative number of transaction,Weekly transaction success rate",
     "Day"
   );
 
 export const getTransactionsNewWallet = () =>
   getSimpleArrayData<TransactionsNewWallet, TransactionsNewWallet>(
     "c653021e-20d2-4492-9e29-3c822e050db2",
-    "Daily number of new wallets,Cumulative number of new wallets",
+    "Weekly number of new wallets,Cumulative number of new wallets",
     "Day"
   );
 

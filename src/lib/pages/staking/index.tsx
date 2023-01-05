@@ -103,6 +103,36 @@ OSMO staking is a process by which users can earn rewards for holding OSMO token
 To be eligible for staking rewards with $OSMO, users must have at least 100 OSMO in their wallet and must keep it staked for a minimum of seven days. 
 
 Unstaking $OSMO tokens from the Osmosis protocol can take up to 14 days. This is due to the fact that there is a waiting period before the tokens are officially released from the staking contract. After the 14-day waiting period, the tokens will be released and sent to the user's wallet address.
+
+Now I describe each section:
+
+- **Staking Over time:** In this section, you could see some simple metrics include number of staking transactions and stakers, volume of staking transactions, and also total $OSMO staked over time.
+
+  
+
+- **Daily average:** In this section, you can see on average, how much $OSMO was staked per day. how many staked their $OSMO per day. How many staking transactions were made per day. Only the last three months are considered.
+
+  
+
+- **Active Staking Pool:** Shows the number of validators used to staking per certain period.
+
+  
+
+- **Top validators:** Tried to find top validators in terms of number of transactions, number of users and volume of transactions.
+
+  
+
+- **Weekly top 10 validators:** Tried to find weekly top 10 validators in terms of number of transactions, number of users and volume of transactions.
+
+  
+
+- **Top validators based on current power:** Validator power is a measure of the amount of stake that is delegated to a validator. In this section, tried to find top validators in terms of current amount of stake they have.
+
+  
+
+- **Top stakers:** This section show the most active stakers, those who staked the most amount of token. Also, I showed the validators they use.
+
+
 `}</HeaderSection>
 
         <SimpleGrid
