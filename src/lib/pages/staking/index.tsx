@@ -48,11 +48,7 @@ const colDef: ColumnDef<StakingTopStakers>[] = [
   {
     accessorFn: (row) => row["Staking validators"],
     id: "Staking validators",
-    cell: (info) =>
-      millify(info.getValue() as number, {
-        precision: 2,
-        decimalSeparator: ".",
-      }) + " %",
+    cell: (info) => info.getValue(),
     header: (props) => <span>{props.header.id}</span>,
   }
 ];
@@ -181,11 +177,11 @@ Now I describe each section:
 
           <HeaderSection title="Daily average" />
           {[
-            ["AVG tx count", 1],
-            ["AVG unique wallet", 2],
-            ["AVG volume", 3],
-            ["AVG TX volume", 0],
-          ].map(([item, place], index) => (
+            ["AVG tx count", 1, ""],
+            ["AVG unique wallet", 2, ""],
+            ["AVG volume", 3, "OSMO"],
+            ["AVG TX volume", 0, "OSMO"],
+          ].map(([item, place, yLabel], index) => (
             <BarGraph
               key={item}
               values={stakingDailyAverage.data}
@@ -195,7 +191,7 @@ Now I describe each section:
               title={stakingDailyAverageNames[place as number]}
               baseSpan={1}
               dataKey="Actions"
-              oyLabel="$Luna"
+              oyLabel={yLabel as string}
               oxLabel="Action"
               labels={[
                 {

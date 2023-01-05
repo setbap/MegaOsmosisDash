@@ -47,7 +47,12 @@ const Development = ({ supplyCirculatingSupply, supplyCurrentCirculatingSupply }
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis Supply" />
+        <HeaderSection title="Osmosis Supply">
+          {`
+* Total supply: Total supply of a token refers to the total number of coins or tokens that currently exist and are either in circulation or locked somehow. it can be determined by adding the circulating supply to the number of coins that have been mined but not yet distributed in the market.
+* Circulating supply: Circulating supply is the total number of coins or tokens that are actively available for trade and are being used in the market and in general public. This value fluctuates over time, as tokens can be minted, burned, or locked up as part of a project's protocol or roadmap.
+`}
+        </HeaderSection>
         <Box pt={"4"}></Box>
         <HeaderSection title="Glance">
           {`
