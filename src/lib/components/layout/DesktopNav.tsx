@@ -65,7 +65,7 @@ const DesktopLinkNav = () => {
         borderRadius={"2xl"}
         py={2}
         px={3}
-        bg={useColorModeValue("#a9a9a95b", "#1919197b")}
+        bg={useColorModeValue("#a9a9a938", "#1919197b")}
         backdropBlur="2xl"
         justifyContent={"space-between"}
         experimental_spaceX="2"
@@ -81,7 +81,7 @@ const DesktopLinkNav = () => {
                 bg: useColorModeValue("#2224", "#a9a9a92b"),
               }}
               borderWidth="1px"
-              borderColor={useColorModeValue("#29292929", "#a9a9a91b")}
+              borderColor={useColorModeValue("#1114", "#a9a9a91b")}
               bg={router.pathname === link.path ? "#0003" : "transparent"}
               textColor={"white"}
               onClick={() => {
@@ -94,7 +94,6 @@ const DesktopLinkNav = () => {
             </Button>
           ))}
         </Box>
-
       </Box>
     </Box>
   );
@@ -122,7 +121,11 @@ const DesktopTopNav = () => {
       <Box mx={"2"} display={"flex"} alignItems="center">
         <Image
           alt="Near network image"
-          style={{ transform: "scale(1)", filter: 'grayscale(0.2)', zIndex: "1" }}
+          style={{
+            transform: "scale(1)",
+            filter: "grayscale(0.2)",
+            zIndex: "1",
+          }}
           width={32}
           height={32}
           src={names.BLOCKCHAIN_HEADER_IMAGE_URL}

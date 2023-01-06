@@ -96,7 +96,6 @@ const Staking = ({
         <HeaderSection title="$OSMO staking">{`
 OSMO staking is a process by which users can earn rewards for holding OSMO tokens. Users will start to accrue rewards based on the amount of OSMO tokens they have staked and the current staking rate. Generally, the higher the amount of OSMO tokens staked, the higher the rewards will be.
 
-
 Unstaking $OSMO tokens from the Osmosis protocol can take up to 14 days. This is due to the fact that there is a waiting period before the tokens are officially released from the staking contract. After the 14-day waiting period, the tokens will be released and sent to the user's wallet address.
 
 Now I describe each section:
