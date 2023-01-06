@@ -8,7 +8,7 @@ export default [
   { name: "Staking", path: "/staking", icon: GiProfit },
   { name: "Stablecoins", path: "/stablecoins", icon: BiDollar },
   // { name: "Defi", path: "/defi", icon: AiOutlineSwap },
-  { name: "Development", path: "/development", icon: BsCodeSquare },
+  { name: "Contract Growth", path: "/contract-growth", icon: BsCodeSquare },
   { name: "Airdrop", path: "/airdrop", icon: GiNightSky },
   { name: "Supply", path: "/supply", icon: GiMeepleCircle },
 ];
