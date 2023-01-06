@@ -120,7 +120,7 @@ const DesktopTopNav = () => {
     >
       <Box mx={"2"} display={"flex"} alignItems="center">
         <Image
-          alt="Near network image"
+          alt={`logo of ${names.BLOCKCHAIN}`}
           style={{
             transform: "scale(1)",
             filter: "grayscale(0.2)",
