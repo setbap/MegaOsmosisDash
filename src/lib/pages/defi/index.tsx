@@ -399,7 +399,7 @@ according section defined in above, i prepare some of static about these topics.
           />
           <BarGraph
             values={
-              deFi8WeeklyTop10SwappingPairsUniqueSwappers.data.uniqueSwappers
+              deFi8WeeklyTop10SwappingPairsUniqueSwappers.data.uniqueSwapper
             }
             queryLink={deFi8WeeklyTop10SwappingPairsUniqueSwappers.key}
             modalInfo=""
