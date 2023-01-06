@@ -2,13 +2,12 @@ import { Box, SimpleGrid } from "@chakra-ui/react";
 import ChartBox from "lib/components/charts/LineChart";
 import { StatsCard } from "lib/components/charts/StateCard";
 import names from "lib/utility/names";
-import { NextSeo } from "next-seo";
-
 import { DefiProps } from "pages/defi";
 import DonutChart from "lib/components/charts/DonutChart";
 import BarGraph from "lib/components/charts/BarGraph";
 import HeaderSection from "lib/components/basic/HeaderSection";
 import LineChartWithBar from "lib/components/charts/LineChartWithBar";
+import { NextSeo } from "next-seo";
 
 const colors = [
   "#ff5722",
@@ -48,25 +47,6 @@ const Defi = ({
   const deFi3TodayChangesNames = deFi3TodayChanges.title.split(",");
   const deFi4SwappingOverTimeNames = deFi4SwappingOverTime.title.split(",");
 
-  const deFi6TopSwappingToAssetsTransactionsNames =
-    deFi6TopSwappingToAssetsTransactions.title.split(",");
-  const deFi6TopSwappingToAssetsUniqueSwappersNames =
-    deFi6TopSwappingToAssetsUniqueSwappers.title.split(",");
-  const deFi6TopSwappingToAssetsVolumeNames =
-    deFi6TopSwappingToAssetsVolume.title.split(",");
-  const deFi7TopSwappingPairsTransactionsNames =
-    deFi7TopSwappingPairsTransactions.title.split(",");
-  const deFi7TopSwappingPairsUniqueSwappersNames =
-    deFi7TopSwappingPairsUniqueSwappers.title.split(",");
-  const deFi7TopSwappingPairsVolumeNames =
-    deFi7TopSwappingPairsVolume.title.split(",");
-  const deFi8WeeklyTop10SwappingPairsTransactionsNames =
-    deFi8WeeklyTop10SwappingPairsTransactions.title.split(",");
-  const deFi8WeeklyTop10SwappingPairsUniqueSwappersNames =
-    deFi8WeeklyTop10SwappingPairsUniqueSwappers.title.split(",");
-  const deFi8WeeklyTop10SwappingPairsVolumeNames =
-    deFi8WeeklyTop10SwappingPairsVolume.title.split(",");
-
   return (
     <>
       <NextSeo
@@ -90,7 +70,29 @@ const Defi = ({
         }}
       />
       <Box mx={"auto"} pt="4" px={{ base: 3, sm: 2, md: 8 }}>
-        <HeaderSection title="Osmosis DEFI" />
+        <HeaderSection title="Osmosis DEFI">
+          {`
+The following topics are shown on this page:
+
+* **Swapping Over time:** In this section, you could see some simple metrics including number of swapping transactions and swappers, volume of swapping transactions, and also average swapping size over time.
+
+  
+
+* **Top Swapping From Assets:** This section shows the most popular swapping from assets in terms of number of transactions, number of users and volume of transactions.
+
+  
+
+* **Top Swapping To Assets:** This section shows the most popular swapping to assets in terms of number of transactions, number of users and volume of transactions.
+
+  
+
+* **Top Swapping Pairs:** This section shows the most popular swapping pairs in terms of number of transactions, number of users and volume of transactions.
+
+  
+
+* **Weekly Top 10 Swapping Pairs:** Tried to find weekly top 10 swapping pairs in terms of number of transactions, number of users and volume of transactions.
+          `}
+        </HeaderSection>
         <Box pt={"4"}></Box>
         <HeaderSection title="Glance">
           {`
