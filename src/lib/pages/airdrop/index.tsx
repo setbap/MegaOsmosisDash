@@ -22,7 +22,10 @@ const colors = [
   "#607d8b",
 ];
 
-const Airdrop = ({ airdropClaimed, airdropTotalInfo }: AirdropProps): JSX.Element => {
+const Airdrop = ({
+  airdropClaimed,
+  airdropTotalInfo,
+}: AirdropProps): JSX.Element => {
   const airdropClaimedNames = airdropClaimed.title.split(",");
   const airdropTotalInfoNames = airdropTotalInfo.title.split(",");
 
@@ -66,25 +69,21 @@ according section defined in above, i prepare some of static about these topics.
           spacing={{ base: 5, lg: 8 }}
         >
           <StatsCard
-            stat={
-              airdropTotalInfo.data["Total Tx count"]
-            }
+            stat={airdropTotalInfo.data["Total Tx count"]}
             title={airdropTotalInfoNames[1]}
             status="inc"
             hasArrowIcon={false}
             link={airdropTotalInfo.key}
           />
           <StatsCard
-            stat={
-              airdropTotalInfo.data["Total Claimed Amount"]
-            }
+            stat={airdropTotalInfo.data["Total Claimed Amount"]}
             title={airdropTotalInfoNames[0]}
             status="inc"
             hasArrowIcon={false}
             link={airdropTotalInfo.key}
           />
         </SimpleGrid>
-        <HeaderSection title="Development Contracts " />
+        <HeaderSection title="Airdrop Over time" />
         <SimpleGrid
           position={"relative"}
           transition={"all 0.9s ease-in-out"}
@@ -94,7 +93,6 @@ according section defined in above, i prepare some of static about these topics.
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
-
           <ChartBox
             data={airdropClaimed.data}
             queryLink={airdropClaimed.key}
@@ -133,7 +131,6 @@ according section defined in above, i prepare some of static about these topics.
             lineDataKey={""}
             additionalLineKey={["MA7 Tx count"]}
           />
-
         </SimpleGrid>
       </Box>
     </>
