@@ -114,7 +114,7 @@ according section defined in above, i prepare some of static about these topics.
             defultSelectedRange="all"
             hideLine
             barDataKey={"Claimed Amount"}
-            lineDataKey={"MA7 Claimed Amount"}
+            lineDataKey={"fake"}
             additionalLineKey={["MA7 Claimed Amount"]}
           />
           <LineChartWithBar
