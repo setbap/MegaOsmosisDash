@@ -15,6 +15,7 @@ import { motion, useScroll } from "framer-motion";
 import { DesktopNav } from "./DesktopNav";
 import { MobileNav } from "./MobileNav";
 import { MobileNavDrawerContent } from "./NavDrawerContent";
+import FontSelector from "../basic/FontSelector";
 
 export default function SidebarWithHeader({
   children,
@@ -43,6 +44,7 @@ export default function SidebarWithHeader({
         "linear-gradient(to top, #090909,#000000)"
       )}
     >
+      <FontSelector />
       <motion.div
         className="progress-bar"
         style={{ scaleX: scrollYProgress }}

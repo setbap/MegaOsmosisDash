@@ -24,6 +24,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@flipsidecrypto/sdk": "^1.1.1",
+    "@next/font": "^13.1.1",
     "@nivo/calendar": "^0.80.0",
     "@nivo/colors": "^0.80.0",
     "@nivo/core": "^0.80.0",
