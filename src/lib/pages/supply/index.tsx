@@ -5,6 +5,11 @@ import names from "lib/utility/names";
 import { NextSeo } from "next-seo";
 import { SupplyProps } from "pages/supply";
 import HeaderSection from "lib/components/basic/HeaderSection";
+import { ColumnDef } from "@tanstack/react-table";
+import { SupplyOSMOHolders1TopOPHolders } from "lib/types/types/supply";
+import millify from "millify";
+import DonutChart from "lib/components/charts/DonutChart";
+import TableBox from "lib/components/charts/TableBox";
 
 const colors = [
   "#ff5722",
@@ -20,10 +25,31 @@ const colors = [
   "#009688",
   "#607d8b",
 ];
-
-const Development = ({ supplyCirculatingSupply, supplyCurrentCirculatingSupply }: SupplyProps): JSX.Element => {
-
-
+const colDef: ColumnDef<SupplyOSMOHolders1TopOPHolders>[] = [
+  {
+    accessorFn: (row) => row.Wallet,
+    enableSorting: false,
+    id: "Wallet",
+    cell: (info) => info.getValue(),
+    header: () => <span>Wallet</span>,
+  },
+  {
+    accessorFn: (row) => row.Balance,
+    id: "Balance",
+    cell: (info) =>
+      millify(info.getValue() as number, {
+        precision: 2,
+        decimalSeparator: ".",
+      }),
+    header: () => <span>Balance</span>,
+  },
+];
+const Supply = ({
+  supplyOSMOHolders1TopOPHolders,
+  supplyOSMOHolders2DistributionOfOPHolders,
+  supplyCirculatingSupply,
+  supplyCurrentCirculatingSupply,
+}: SupplyProps): JSX.Element => {
   return (
     <>
       <NextSeo
@@ -65,9 +91,7 @@ according section defined in above, i prepare some of static about these topics.
           spacing={{ base: 5, lg: 8 }}
         >
           <StatsCard
-            stat={
-              supplyCurrentCirculatingSupply.data["Circulating Supply"]
-            }
+            stat={supplyCurrentCirculatingSupply.data["Circulating Supply"]}
             title={supplyCurrentCirculatingSupply.title}
             status="inc"
             hasArrowIcon={false}
@@ -85,12 +109,40 @@ according section defined in above, i prepare some of static about these topics.
           columns={{ sm: 1, md: 1, lg: 2, "2xl": 3 }}
           spacing={{ base: 1, md: 2, lg: 4 }}
         >
-          <ChartBox baseSpan={3} customColor={colors[1]} xAxisDataKey={"Day"} areaDataKey={"Circulating Supply"} queryLink={supplyCirculatingSupply.key} title={supplyCirculatingSupply.title} data={supplyCirculatingSupply.data} />
-
+          <ChartBox
+            baseSpan={3}
+            customColor={colors[1]}
+            xAxisDataKey={"Day"}
+            areaDataKey={"Circulating Supply"}
+            queryLink={supplyCirculatingSupply.key}
+            title={supplyCirculatingSupply.title}
+            data={supplyCirculatingSupply.data}
+          />
+          <HeaderSection title="Distribution of $OSMO holders" />
+          <DonutChart
+            queryLink={supplyOSMOHolders2DistributionOfOPHolders.key}
+            data={supplyOSMOHolders2DistributionOfOPHolders.data}
+            modalInfo=""
+            baseSpan={3}
+            title={supplyOSMOHolders2DistributionOfOPHolders.title}
+            nameKey="Distribution"
+            dataKey="Count"
+          />
+          <HeaderSection title="Top $OSMO holders" />
+          <TableBox
+            customHeaderColor={colors[2]}
+            queryLink={supplyOSMOHolders1TopOPHolders.key}
+            title={supplyOSMOHolders1TopOPHolders.title}
+            baseSpan={3}
+            tablePageSize={10}
+            modalInfo={``}
+            data={supplyOSMOHolders1TopOPHolders.data}
+            columnsDef={colDef}
+          />
         </SimpleGrid>
       </Box>
     </>
   );
 };
 
-export default Development;
+export default Supply;
